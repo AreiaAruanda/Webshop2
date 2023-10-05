@@ -1,3 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿String name;
+string password;
 Console.WriteLine("Hello, World!");
-// test comment
+Dictionary<string, string> login = new Dictionary<string, string>();
+
+
