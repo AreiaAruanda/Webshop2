@@ -32,7 +32,7 @@ public class manager
             Console.WriteLine(userinputname + " Sucessfully created new user");
             loginlist.Add(userinputname, passwordinput);
 
-            using (StreamWriter sw = File.AppendText("D:\\siktergit\\test33\\users.csv"))
+            using (StreamWriter sw = File.AppendText("../../../users.csv"))
             {
 
                 sw.WriteLine(userinputname + ";" + passwordinput);
@@ -74,7 +74,7 @@ public class manager
     }
     public void init()
     {
-        string[] filen = File.ReadAllLines("D:\\siktergit\\test33\\users.csv");
+        string[] filen = File.ReadAllLines("../../../users.csv");
 
 
         foreach (string line in filen)
