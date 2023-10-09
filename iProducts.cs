@@ -6,8 +6,5 @@ using System.Threading.Tasks;
 
 namespace WebShop2
 {
-    public interface iProducts
-    {
-
-    }
+  
 }

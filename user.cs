@@ -4,11 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebShop2
+public class product
 {
-    public class user
-    {
-      
-        
-    }
+
 }

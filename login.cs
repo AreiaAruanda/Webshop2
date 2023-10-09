@@ -1,8 +1,8 @@
 ﻿using System.IO;
 using System.Xml.Linq;
-using test33;
 public class manager
 {
+    // Register new user
     public bool register()
     {
         string? passwordinput;
@@ -31,7 +31,7 @@ public class manager
             }
             Console.WriteLine(userinputname + " Sucessfully created new user");
             loginlist.Add(userinputname, passwordinput);
-
+            // Adds the user to the CSV file
             using (StreamWriter sw = File.AppendText("../../../users.csv"))
             {
 
@@ -42,6 +42,7 @@ public class manager
         return true;
 
     }
+    // Checks for duplicate usernames
     public bool usernameExists(string username)
     {
         if (loginlist.ContainsKey(username))
@@ -50,6 +51,7 @@ public class manager
         }
         return false;
     }
+    // log in function with csv
     public bool login()
     {
         while (true)
@@ -72,10 +74,10 @@ public class manager
         }
         return true;
     }
+    // Dictionary csv for user login and password
     public void init()
     {
         string[] filen = File.ReadAllLines("../../../users.csv");
-
 
         foreach (string line in filen)
         {
@@ -84,20 +86,50 @@ public class manager
                 continue;
             }
             filen = line.Split(';');
-
-
-
             string name2 = filen[0];
             string password2 = filen[1];
-
             loginlist.Add(name2, password2);
 
         }
-
-
     }
 
-    private Dictionary<string, string> loginlist = new Dictionary<string, string>();
+
+    public void loggedinUser()
+    {
+        Console.WriteLine("What do you want to do?");
+        Console.WriteLine("1 / Buy");
+        Console.WriteLine("2 / View purchase history");
+        Console.WriteLine("3 / View cart");
+        Console.WriteLine("4 / Checkout");
 
 
+
+        string option2 = Console.ReadLine();
+        if (option2 == "1")
+        {
+            Console.WriteLine("What would you like to buy ? ");
+            Console.WriteLine();
+            //buy();
+        }
+        else if (option2 == "2")
+        {
+
+        }
+        else if (option2 == "3")
+        {
+            //viewcart();
+
+        }
+        else if (option2 == "4" ) {
+
+        }
+        else
+        {
+            Console.Clear();
+            Console.WriteLine("Please pick something valid");
+            //continue;
+        }
+
+    }
+    public Dictionary<string, string> loginlist = new Dictionary<string, string>();
 }
