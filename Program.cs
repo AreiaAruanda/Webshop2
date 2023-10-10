@@ -17,7 +17,7 @@ public class Program2
                 // Log in function
                 managerinstance.login();
                 Console.Clear();
-                managerinstance.loggedinUser();
+                managerinstance.loggedinUser(); 
 
             }
             else if (option == "2")
