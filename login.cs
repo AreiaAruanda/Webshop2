@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Security.Cryptography.X509Certificates;
 using System.Xml.Linq;
 public class manager
 {
@@ -107,8 +108,47 @@ public class manager
         string option2 = Console.ReadLine();
         if (option2 == "1")
         {
+            string[] products = File.ReadAllLines("/Users/DaciBaci/source/repos/WebShop2/productfile.csv");
             Console.WriteLine("What would you like to buy ? ");
             Console.WriteLine();
+
+            foreach (string line in products)
+            {
+                Console.WriteLine(line);
+            }
+
+            Console.WriteLine("Which product do you wish to buy?");
+
+            string buyOption = Console.ReadLine();
+
+            foreach (string line in products)
+            {
+                if (line == "")
+                {
+                    continue;
+                }
+                products = line.Split(';');
+                string productName = products[0].ToLower();
+                string price = products[1];
+
+                while (true)
+                {
+                    if (buyOption == productName)
+                    {
+                        Console.WriteLine("goodjewb");
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Try again!");
+                        buyOption = Console.ReadLine();
+                    }
+                }
+            }
+
+
+
+
             //buy();
         }
         else if (option2 == "2")
@@ -120,7 +160,8 @@ public class manager
             //viewcart();
 
         }
-        else if (option2 == "4" ) {
+        else if (option2 == "4")
+        {
 
         }
         else
