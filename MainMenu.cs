@@ -5,6 +5,10 @@ public class MainMenu
     Admin admin = new Admin();
     User user = new User();
     Register Register = new Register();
+<<<<<<< Updated upstream
+=======
+    
+>>>>>>> Stashed changes
     public void mainMenu()
     {
         while (true)
@@ -32,7 +36,11 @@ public class MainMenu
             else if (choice == "3")
             {
                 Register.RegisterUser();
+<<<<<<< Updated upstream
                 break;
+=======
+                //break;
+>>>>>>> Stashed changes
             }
             else if (choice == "4")
             {

@@ -63,6 +63,10 @@ namespace basics
                     {
                         Console.Clear();
                         Console.WriteLine("You picked " + productList[i].name);
+<<<<<<< Updated upstream
+=======
+                        Console.WriteLine("Press enter to proceed");
+>>>>>>> Stashed changes
                         Console.ReadKey();
                         Console.Clear();
                         validitem = true;

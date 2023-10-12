@@ -6,8 +6,16 @@ using System.Threading.Tasks;
 
 namespace basics
 {
+<<<<<<< Updated upstream
     public class Register
     {
+=======
+
+    public class Register
+    {
+        // calls main menu class
+         
+>>>>>>> Stashed changes
         User user = new User();
         public bool UsernameExists(string username)
         {
@@ -52,9 +60,22 @@ namespace basics
 
                     sw.WriteLine(userinputname + ";" + passwordinput);
                 }
+<<<<<<< Updated upstream
                 break;
             }
             return true;
         }
+=======
+                
+                
+                break;
+            }
+
+            
+            return true;
+            
+        }
+        
+>>>>>>> Stashed changes
     }
 }
