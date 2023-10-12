@@ -1,39 +1,16 @@
-﻿
-public class Program2
+﻿using System.ComponentModel;
+using System.Security.Cryptography.X509Certificates;
+
+namespace basics
 {
-    static void Main(string[] args)
+    internal class Program
     {
-        manager managerinstance = new manager();
-        managerinstance.init();
-
-        while (true)
+        static void Main(string[] args)
         {
-            Console.WriteLine("What do you want to do?");
-            Console.WriteLine("1 / Login");
-            Console.WriteLine("2 / Sign up new user");
-            string option = Console.ReadLine();
-            if (option == "1")
-            {
-                // Log in function
-                managerinstance.login();
-                Console.Clear();
-                managerinstance.loggedinUser();
-
-            }
-            else if (option == "2")
-            {
-                managerinstance.register();
-            }
-            else
-            {
-                Console.Clear();
-                Console.WriteLine("Please pick 1 or 2");
-                continue;
-            }
-            break;
-
+            // Creates object of MainMenu from other file
+            MainMenu mainMenu = new MainMenu();
+            // Calls on main menu
+            mainMenu.mainMenu();
         }
-
     }
-
 }
