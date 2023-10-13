@@ -4,121 +4,120 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace basics
+namespace basics;
+
+public class User
 {
-    public class User
+    viewHistory ViewHistory = new viewHistory();
+    Products products = new Products();
+
+    public Dictionary<string, string> loginlistUser = new Dictionary<string, string>();
+    // Dictionary csv for user login and password
+    public void Init()
     {
-        viewHistory ViewHistory = new viewHistory();
-        Products products = new Products();
+        string[] filen = File.ReadAllLines("../../../users.csv");
 
-        public Dictionary<string, string> loginlistUser = new Dictionary<string, string>();
-        // Dictionary csv for user login and password
-        public void Init()
+        foreach (string line in filen)
         {
-            string[] filen = File.ReadAllLines("../../../users.csv");
-
-            foreach (string line in filen)
+            if (line == "")
             {
-                if (line == "")
-                {
-                    continue;
-                }
-                filen = line.Split(';');
-                string name2 = filen[0];
-                string password2 = filen[1];
-                loginlistUser.Add(name2, password2);
+                continue;
+            }
+            filen = line.Split(';');
+            string name2 = filen[0];
+            string password2 = filen[1];
+            loginlistUser.Add(name2, password2);
+        }
+    }
+    string? realusername;
+    public bool Login()
+    {
+        Init();
+        products.ReadProducts();
+
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine("Please enter your username");
+            string userinputname = Console.ReadLine();
+            Console.WriteLine("Please enter your password");
+            string passwordinput = Console.ReadLine();
+            if (loginlistUser.ContainsKey(userinputname) && passwordinput == loginlistUser[userinputname])
+            {
+                realusername = userinputname;
+                Console.WriteLine(userinputname + " has logged in");
+                Console.Clear();
+                UserLoggedin();
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Your credentials do not exist");
+                Console.WriteLine("Please try again");
+                Console.ReadKey();
             }
         }
-        string? realusername;
-        public bool Login()
-        {
-            Init();
-            products.ReadProducts();
+        return true;
+    }
+    List<Product> shoppingList = new List<Product>();
 
-            while (true)
+    public void UserLoggedin()
+    {
+        while (true)
+        {
+            Console.WriteLine("What do you want to do?");
+            Console.WriteLine("1 / Buy items");
+            Console.WriteLine("2 / View purchase history");
+            Console.WriteLine("3 / View cart");
+            Console.WriteLine("4 / Checkout");
+            string userChoice = Console.ReadLine();
+            if (userChoice == "1")
             {
                 Console.Clear();
-                Console.WriteLine("Please enter your username");
-                string userinputname = Console.ReadLine();
-                Console.WriteLine("Please enter your password");
-                string passwordinput = Console.ReadLine();
-                if (loginlistUser.ContainsKey(userinputname) && passwordinput == loginlistUser[userinputname])
-                {
-                    realusername = userinputname;
-                    Console.WriteLine(userinputname + " has logged in");
-                    Console.Clear();
-                    UserLoggedin();
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("Your credentials do not exist");
-                    Console.WriteLine("Please try again");
-                    Console.ReadKey();
-                }
+                products.ShopItems(ref shoppingList);
+
             }
-            return true;
-        }
-        List<Product> shoppingList = new List<Product>();
-
-        public void UserLoggedin()
-        {
-            while (true)
+            else if (userChoice == "2")
             {
-                Console.WriteLine("What do you want to do?");
-                Console.WriteLine("1 / Buy items");
-                Console.WriteLine("2 / View purchase history");
-                Console.WriteLine("3 / View cart");
-                Console.WriteLine("4 / Checkout");
-                string userChoice = Console.ReadLine();
-                if (userChoice == "1")
-                {
-                    Console.Clear();
-                    products.ShopItems(ref shoppingList);
+                Console.Clear();
+                Console.WriteLine(realusername + " Buyhistory:\n");
 
-                }
-                else if (userChoice == "2")
-                {
-                    Console.Clear();
-                    Console.WriteLine(realusername + " Buyhistory:\n");
-                    
-                    ViewHistory.viewBuyHistory(realusername);
+                ViewHistory.viewBuyHistory(realusername);
 
-                    Console.ReadKey();
-                    Console.Clear();
-                }
-                else if (userChoice == "3")
+                Console.ReadKey();
+                Console.Clear();
+            }
+            else if (userChoice == "3")
+            {
+                Console.Clear();
+                Console.WriteLine("Cart contains: \n");
+                for (int i = 0; i < shoppingList.Count; i++)
                 {
-                    Console.Clear();
-                    Console.WriteLine("Cart contains: \n");
+                    Console.WriteLine(shoppingList[i].name + " " + shoppingList[i].price);
+                }
+                Console.ReadKey();
+                Console.Clear();
+            }
+            else if (userChoice == "4")
+            {
+                int totalAmount = 0;
+                using (StreamWriter sw = File.AppendText("../../../buyHistory.csv"))
+                {
                     for (int i = 0; i < shoppingList.Count; i++)
                     {
-                        Console.WriteLine(shoppingList[i].name + " " + shoppingList[i].price);
+                        totalAmount += int.Parse(shoppingList[i].price);
+                        sw.WriteLine(realusername + ";" + shoppingList[i].name + ";" + shoppingList[i].price);
                     }
-                    Console.ReadKey();
-                    Console.Clear();
                 }
-                else if (userChoice == "4")
-                {
-                    int totalAmount = 0;
-                    using (StreamWriter sw = File.AppendText("../../../buyHistory.csv"))
-                    {
-                        for (int i = 0; i < shoppingList.Count; i++)
-                        {
-                            totalAmount += int.Parse(shoppingList[i].price); 
-                            sw.WriteLine(realusername+ ";" + shoppingList[i].name+ ";" + shoppingList[i].price);
-                        }
-                    }
-                    Console.Clear();
-                    Console.WriteLine("Your purchase was successful! Total amount paid: " + totalAmount);
-                    break;
-                }
-                else
-                {
-                    Console.Clear();
-                    Console.WriteLine("Pick something valid");
-                    continue;
-                }
+                Console.Clear();
+                Console.WriteLine("Your purchase was successful! Total amount paid: " + totalAmount);
+                break;
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Pick something valid");
+                continue;
             }
         }
     }
