@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace basics;
 
-public class viewHistory
+public class ViewHistory
 {
-    public void viewBuyHistory(string name)
+    public void ViewBuyHistory(string name)
     {
         string[] filen = File.ReadAllLines("../../../buyHistory.csv");
 
@@ -23,10 +23,11 @@ public class viewHistory
             string itemname = filen[0];
             string item = filen[1];
             string price = filen[2];
+            string dateAndTime = filen[3];
 
             if (name == itemname)
             {
-                Console.WriteLine(item + " " + price);
+                Console.WriteLine(item + " " + price + " " + dateAndTime);
             }
         }
     }
