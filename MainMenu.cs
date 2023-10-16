@@ -21,19 +21,18 @@ public class MainMenu
             if (choice == "1")
             {
                 admin.AdminMenu();
-                break;
+                continue;
             }
             else if (choice == "2")
             {
                 //user.init();
                 user.Login();
-
-                break;
+                continue;
             }
             else if (choice == "3")
             {
                 Register.RegisterUser();
-                //break;
+                continue;
             }
             else if (choice == "4")
             {

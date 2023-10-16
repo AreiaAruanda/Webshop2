@@ -10,7 +10,6 @@ namespace basics;
 public class User
 {
     ViewHistory viewHistory = new ViewHistory();
-    Products products = new Products();
 
     public Dictionary<string, string> loginlistUser = new Dictionary<string, string>();
     // Dictionary csv for user login and password
@@ -34,7 +33,6 @@ public class User
     public bool Login()
     {
         Init();
-        products.ReadProducts();
 
         while (true)
         {
@@ -75,8 +73,7 @@ public class User
             if (userChoice == "1")
             {
                 Console.Clear();
-                products.ShopItems(ref shoppingList);
-
+                Products.ShopItems(ref shoppingList);
             }
             else if (userChoice == "2")
             {
@@ -101,12 +98,12 @@ public class User
             }
             else if (userChoice == "4")
             {
-                int totalAmount = 0;
+                float totalAmount = 0;
                 using (StreamWriter sw = File.AppendText("../../../buyHistory.csv"))
                 {
                     for (int i = 0; i < shoppingList.Count; i++)
                     {
-                        totalAmount += int.Parse(shoppingList[i].price);
+                        totalAmount += shoppingList[i].price;
                         sw.WriteLine(realusername + ";" + shoppingList[i].name + ";" + shoppingList[i].price + ";" + DateTime.Now.ToString());
                     }
                 }
