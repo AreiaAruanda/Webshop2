@@ -6,6 +6,3 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace basics;
-public struct Product
-{
-}

@@ -8,28 +8,6 @@ namespace basics;
 
 public class ViewHistory
 {
-    public void ViewBuyHistory(string name)
-    {
-        string[] filen = File.ReadAllLines("../../../buyHistory.csv");
-
-        foreach (string line in filen)
-        {
-            if (line == "")
-            {
-                continue;
-            }
-
-            filen = line.Split(';');
-            string itemname = filen[0];
-            string item = filen[1];
-            string price = filen[2];
-            string dateAndTime = filen[3];
-
-            if (name == itemname)
-            {
-                Console.WriteLine(item + " " + price + " " + dateAndTime);
-            }
-        }
-    }
+    
 
 }
