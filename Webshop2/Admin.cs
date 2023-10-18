@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Webshop2
+namespace Webshop2;
+
+public class Admin
 {
-    internal class Admin
-    {
-    }
 }
