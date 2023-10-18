@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace basics;
+namespace WebShop2;
 
 public class ViewHistory
 {
