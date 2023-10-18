@@ -1,0 +1,14 @@
+C:\Users\lipsk\source\repos\WebShop2\obj\Debug\net7.0\WebShop2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lipsk\source\repos\WebShop2\obj\Debug\net7.0\WebShop2.AssemblyInfoInputs.cache
+C:\Users\lipsk\source\repos\WebShop2\obj\Debug\net7.0\WebShop2.AssemblyInfo.cs
+C:\Users\lipsk\source\repos\WebShop2\obj\Debug\net7.0\WebShop2.csproj.CoreCompileInputs.cache
+C:\Users\lipsk\source\repos\WebShop2\bin\Debug\net7.0\WebShop2.exe
+C:\Users\lipsk\source\repos\WebShop2\bin\Debug\net7.0\WebShop2.deps.json
+C:\Users\lipsk\source\repos\WebShop2\bin\Debug\net7.0\WebShop2.runtimeconfig.json
+C:\Users\lipsk\source\repos\WebShop2\bin\Debug\net7.0\WebShop2.dll
+C:\Users\lipsk\source\repos\WebShop2\bin\Debug\net7.0\WebShop2.pdb
+C:\Users\lipsk\source\repos\WebShop2\obj\Debug\net7.0\WebShop2.dll
+C:\Users\lipsk\source\repos\WebShop2\obj\Debug\net7.0\refint\WebShop2.dll
+C:\Users\lipsk\source\repos\WebShop2\obj\Debug\net7.0\WebShop2.pdb
+C:\Users\lipsk\source\repos\WebShop2\obj\Debug\net7.0\WebShop2.genruntimeconfig.cache
+C:\Users\lipsk\source\repos\WebShop2\obj\Debug\net7.0\ref\WebShop2.dll

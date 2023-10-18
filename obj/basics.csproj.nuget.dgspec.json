@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lipsk\\source\\repos\\WebShop2\\Webshop2\\Webshop2.csproj": {}
+    "C:\\Users\\lipsk\\source\\repos\\WebShop2\\basics.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lipsk\\source\\repos\\WebShop2\\Webshop2\\Webshop2.csproj": {
+    "C:\\Users\\lipsk\\source\\repos\\WebShop2\\basics.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lipsk\\source\\repos\\WebShop2\\Webshop2\\Webshop2.csproj",
-        "projectName": "Webshop2",
-        "projectPath": "C:\\Users\\lipsk\\source\\repos\\WebShop2\\Webshop2\\Webshop2.csproj",
+        "projectUniqueName": "C:\\Users\\lipsk\\source\\repos\\WebShop2\\basics.csproj",
+        "projectName": "basics",
+        "projectPath": "C:\\Users\\lipsk\\source\\repos\\WebShop2\\basics.csproj",
         "packagesPath": "C:\\Users\\lipsk\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lipsk\\source\\repos\\WebShop2\\Webshop2\\obj\\",
+        "outputPath": "C:\\Users\\lipsk\\source\\repos\\WebShop2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lipsk\\AppData\\Roaming\\NuGet\\NuGet.Config",
